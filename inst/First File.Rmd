@@ -1,5 +1,5 @@
 ---
-title: "Practice with Conjoint Package"
+title: "First File"
 author: "Barry DeCicco"
 date: "11/1/2021"
 output: html_document
@@ -16,12 +16,16 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 ``` {r global-options, echo=FALSE}
 # Global chunk options (over-ridden by local chunk options)
-knitr::opts_chunk$set(include  = TRUE, echo = TRUE, error = TRUE, 
-                      message = FALSE, warning = TRUE, fig.width=14, fig.height=10)
+
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
 
 # Declare path to this script relative to the project root directory.
 here::i_am(
-  path = "inst/Practice with Conjoint Package.Rmd"
+  path = "inst/First File.Rmd"
   )
 
 # Suppress scientific notation:
@@ -36,6 +40,10 @@ options(scipen = 5)
 ## Next we load R packages required for this script to work. 
 
 ```{r load-packages, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(patchwork)
+library(cowplot)
+library(palmerpenguins)
 
 library(emmeans)    # for emmeans
 library(lme4) 
