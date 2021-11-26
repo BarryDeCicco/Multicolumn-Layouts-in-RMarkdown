@@ -83,34 +83,7 @@ library(radiant)    # For stting up designeex
 This file is to experiment with the **conjoint** package in R.  This is based on matierals in **R for marketing students** (https://bookdown.org/content/6ef13ea6-4e86-4566-b665-ebcd19d45029/)
 
 
-# Import and Process Data: 
-
-## Import data:
-```{r import-from-xlsx, echo=FALSE, include=FALSE}
-
-icecream <- readxl::read_xlsx(here('inst/extdata/icecream.xlsx'),1)
-
-View(icecream)
-
-```
-
-## Process the data
-
-Convert it from one column per respondent to one row per rating.  This will have many rows per respondent, one for each profile for which they gave a rating.
-
-In general, this is called going from 'wide' to 'long'.
-
-```{r import-from-xlsx, echo=FALSE, include=FALSE}
-
-icecream <- icecream %>% 
-  pivot_longer(cols = starts_with("Individual"), names_to = "respondent", values_to = "rating") %>% # respondent keeps track of the respondent, rating will store the respondent's ratings, and we want to stack every variable that starts with Individual
-  rename("profile" = "Observations") %>% # rename Observations to profile
-  mutate(profile = factor(profile), respondent = factor(respondent),  # factorize identifiers
-         Flavor = factor(Flavor), Packaging = factor(Packaging), Light = factor(Light), Organic = factor(Organic)) # factorize the ice cream attributes
 
 
-View(icecream)
-
-```
 
 
