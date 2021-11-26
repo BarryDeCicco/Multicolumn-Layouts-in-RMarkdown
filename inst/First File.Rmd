@@ -9,9 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Purpose:  this cover multicolumn plots in RMarkdown.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+See:  https://rfortherestofus.com/2021/11/multicolumn
 
 
 ``` {r global-options, echo=FALSE}
@@ -189,4 +189,5 @@ plot_grid(
   rel_widths = c(8, 1)
 )
 ```
+
 
