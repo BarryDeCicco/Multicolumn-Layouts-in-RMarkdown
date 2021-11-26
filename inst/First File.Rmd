@@ -84,6 +84,26 @@ This file is to experiment with the **conjoint** package in R.  This is based on
 
 
 
+```{r original_charts, include=FALSE}
+gg_penguin_scatter <- penguins %>% 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)) +
+  geom_point()
+gg_penguin_bar_chart <- penguins %>% 
+  count(island, species) %>% 
+  ggplot(aes(x = n,
+             y = island,
+             fill = species)) +
+  geom_col()
+gg_penguins_timeline <- penguins %>% 
+  count(year, species) %>% 
+  ggplot(aes(x = year,
+             y = n,
+             color = species)) +
+  geom_line() +
+  scale_x_continuous(n.breaks = 3)
+```
 
 
 
