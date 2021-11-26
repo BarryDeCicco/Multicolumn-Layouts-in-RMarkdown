@@ -171,7 +171,7 @@ In the chart below our goal is to collect together the legends and change the th
 
 - The theme has to be changed for all individual charts.
 
-```{r}
+```{r create-cowplot}
 cwp_legend <- get_legend(gg_penguin_bar_chart)
 cwp_collected <-
   plot_grid(
