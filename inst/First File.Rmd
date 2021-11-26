@@ -171,3 +171,22 @@ In the chart below our goal is to collect together the legends and change the th
 
 - The theme has to be changed for all individual charts.
 
+```{r}
+cwp_legend <- get_legend(gg_penguin_bar_chart)
+cwp_collected <-
+  plot_grid(
+    plot_grid(
+      gg_penguin_scatter + theme_minimal() + theme(legend.position = "none"),
+      gg_penguin_bar_chart + theme_minimal() + theme(legend.position = "none")
+    ),
+    plot_grid(gg_penguins_timeline + theme_minimal() + theme(legend.position = "none")),
+    nrow = 2
+  )
+plot_grid(
+  cwp_collected,
+  cwp_legend,
+  ncol = 2,
+  rel_widths = c(8, 1)
+)
+```
+
