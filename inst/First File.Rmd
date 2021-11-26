@@ -149,3 +149,25 @@ There are two different packages you can choose from, {cowplot} and {patchwork}.
   
 > {patchwork} feels and behaves like a ggplot2 extension, a lot of things are automated. It can become painful to create extremely customised charts.
 
+
+## cowplot
+
+We need to create a nested plot_grid() for the timeline chart to span the width of the chart:
+
+
+```{r create-Plot_grid}
+plot_grid(plot_grid(gg_penguin_scatter, gg_penguin_bar_chart),
+          plot_grid(gg_penguins_timeline),
+          nrow = 2)
+```
+
+In the chart below our goal is to collect together the legends and change the theme:
+
+- The legend is extracted from the bar chart with `get_legend()`
+
+- The legends for all charts are disabled with `theme(legend.position = "none")`
+
+- The legend is attached to the chart using another `plot_grid()`
+
+- The theme has to be changed for all individual charts.
+
