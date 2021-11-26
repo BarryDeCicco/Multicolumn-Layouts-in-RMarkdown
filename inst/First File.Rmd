@@ -122,4 +122,30 @@ gg_ptch_chart
 
 
 ```
+There are two different packages you can choose from, {cowplot} and {patchwork}. They are both very popular in the R community and it's almost down to personal choice which one you prefer. I've tried to differentiate them a little bit:
+
+- {cowplot}
+
+  - Charts are explicitly built within a grid using `plot_grid()`. The layout is controlled by specifying the number of rows and columns in the chart
+  
+  - Nested `plot_grid()` are required to get a single chart to span multiple rows or columns.
+  
+  - Themes need to be applied to individual charts.
+  
+  - Legends need to be extracted from charts and manually placed within a `plot_grid()`.
+  
+> {cowplot} allows extreme precision over your charts. Complex collections of charts with inset charts and custom looking legends can be created.
+  
+  
+- {patchwork}
+
+  - Charts are built using `(p1 + p2) / p3` syntax, `p3` will be placed under `p1` and `p2`.
+  
+  - Because there is no grid system `p3` will automatically span the entire width of the chart.
+  
+  - Themes can be applied to the entire patchwork chart.
+  
+  - Legends can be automatically collected.
+  
+> {patchwork} feels and behaves like a ggplot2 extension, a lot of things are automated. It can become painful to create extremely customised charts.
 
